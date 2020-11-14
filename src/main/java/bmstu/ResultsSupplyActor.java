@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ResultsSupplyActor extends AbstractActor {
-
+    private static void packageIdPrinter(String packageID){
+        
+    }
     private Map<String , String> store = new HashMap<>();
     public Receive createReceive() {
         return receiveBuilder()
@@ -18,7 +20,9 @@ public class ResultsSupplyActor extends AbstractActor {
                 )
                 .match(
                         String.class,
-                        
+                        packageID->{
+                            System.out.println(store);
+                        }
                 )
                 .build();
     }
