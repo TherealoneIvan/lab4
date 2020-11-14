@@ -8,8 +8,8 @@ import java.util.Map;
 public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , String> store = new HashMap<>();
-    private static void packageIdPrinter(String packageID){
-        for (int i = store[packageID] ; i < ; i++) {
+    private void packageIdPrinter(String packageID){
+        for (int i = store.size() ; i < ; i++) {
 
         }
     }
