@@ -11,6 +11,7 @@ public class ResultsSupplyActor extends AbstractActor {
     private Map<String , ArrayList<String>> store = new HashMap<>();
     private void resultStoring(JavaScriptFunctionClass item , Map<String , ArrayList<String>> myStore){
         if (myStore.containsKey(item.getPackageID())){
+            tmpArray = myStore.get(item.getPackageID())
             myStore.put(item.getPackageID() , item.getFunctionRes());
         }
     }
