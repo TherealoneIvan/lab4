@@ -9,35 +9,35 @@ import java.util.Map;
 public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , ArrayList<String>> store = new HashMap<>();
-    private void resultStoring(JavaScriptFunctionClass item , Map<String , ArrayList<String>> myStore){
+    private void resultStoring(JavaScriptFunctionClass item , Map<String){
         ArrayList<String> tmpArray;
-        if (myStore.containsKey(item.getPackageID())){
-            tmpArray = myStore.get(item.getPackageID());
+        if (store.containsKey(item.getPackageID())){
+            tmpArray = store.get(item.getPackageID());
         }else {
             tmpArray = new ArrayList<>();
         }
         tmpArray.add(item.getFunctionRes());
-        myStore.put(item.getPackageID() , tmpArray);
+        store.put(item.getPackageID() , tmpArray);
     }
     private void packageIdPrinter(String packageID) {
         if (store.containsKey(packageID)) {
             ArrayList<String> tmpArray = store.get(packageID);
             for (int i = 0; i < tmpArray.size(); i++) {
-                
+                System.out.println(tmpArray.get(i));
             }
+        }else {
+            System.out.println("There are no tests");
         }
     }
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
                         JavaScriptFunctionClass.class,
-                        item->resultStoring(item , store)
+                        this::resultStoring
                 )
                 .match(
                         String.class,
-                        packageID->{
-                            System.out.println(store);
-                        }
+                        this::packageIdPrinter
                 )
                 .build();
     }
