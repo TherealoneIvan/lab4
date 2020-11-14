@@ -9,7 +9,7 @@ import java.util.Map;
 public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , ArrayList<String>> store = new HashMap<>();
-    private void resultStoring(JavaScriptFunctionClass item , Map<String){
+    private void resultStoring(JavaScriptFunctionClass item){
         ArrayList<String> tmpArray;
         if (store.containsKey(item.getPackageID())){
             tmpArray = store.get(item.getPackageID());
