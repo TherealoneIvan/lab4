@@ -7,6 +7,7 @@ public class JSTestExecutor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return null;
+        return receiveBuilder()
+                .match()
     }
 }
