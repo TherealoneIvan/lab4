@@ -21,9 +21,10 @@ public class JSTestExecutor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        (f,s,t)->{
-                            jsExecutor(f ,s, t);
-                        }
+                        JavaScriptFunctionStore.class,
+                        item->jsExecutor(item.getJsFunction(), item.getJsFunctionName()
+                                ,item.getJsFunctionParam())
                 )
+                .build();
     }
 }
