@@ -1,2 +1,4 @@
-package bmstu;public class AkkaMainApplication {
+package bmstu;
+
+public class AkkaMainApplication {
 }
