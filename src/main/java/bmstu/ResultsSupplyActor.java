@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ResultsSupplyActor extends AbstractActor {
     public static void functionResReceive(String functionResult){
-        
+
     }
     private Map<String , String> store = new HashMap<>();
     public Receive createReceive() {
