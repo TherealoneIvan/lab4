@@ -10,23 +10,28 @@ public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , ArrayList<String>> store = new HashMap<>();
     private void resultStoring(JavaScriptFunctionClass item , Map<String , ArrayList<String>> myStore){
+        ArrayList<String> tmpArray;
         if (myStore.containsKey(item.getPackageID())){
-            tmpArray = myStore.get(item.getPackageID())
-            myStore.put(item.getPackageID() , item.getFunctionRes());
+            tmpArray = myStore.get(item.getPackageID());
+        }else {
+            tmpArray = new ArrayList<>();
         }
+        tmpArray.add(item.getFunctionRes());
+        myStore.put(item.getPackageID() , tmpArray);
     }
-    private void packageIdPrinter(String packageID){
-        for (int i = store.size() ; i < ; i++) {
-
+    private void packageIdPrinter(String packageID) {
+        if (store.containsKey(packageID)) {
+            ArrayList<String> tmpArray = store.get(packageID);
+            for (int i = 0; i < tmpArray.size(); i++) {
+                
+            }
         }
     }
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
                         JavaScriptFunctionClass.class,
-                        item->{
-                            store.put(item.add;
-                        }
+                        item->resultStoring(item , store)
                 )
                 .match(
                         String.class,
