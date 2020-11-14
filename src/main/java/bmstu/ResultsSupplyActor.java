@@ -13,7 +13,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 .match(
                         JavaScriptFunctionClass.class,
                         item->{
-                            
+                            store
                         }
                 )
                 .build();
