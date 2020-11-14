@@ -8,10 +8,10 @@ import javax.script.ScriptEngineManager;
 
 
 public class JSTestExecutor extends AbstractActor {
-    public String jsExecutor(){
+    public String jsExecutor(String jsFunction , String jsFuncName , String jsFuncParam){
         ScriptEngine engine = new
                 ScriptEngineManager().getEngineByName("nashorn");
-        engine.eval(jscript);
+        engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
         return invocable.invokeFunction(functionName, params).toString();
     }
