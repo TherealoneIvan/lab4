@@ -9,6 +9,9 @@ import java.util.Map;
 public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , ArrayList<String>> store = new HashMap<>();
+    private void resultStoring(JavaScriptFunctionClass item , Map<String , ArrayList<String>> myStore){
+        if 
+    }
     private void packageIdPrinter(String packageID){
         for (int i = store.size() ; i < ; i++) {
 
@@ -19,7 +22,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 .match(
                         JavaScriptFunctionClass.class,
                         item->{
-                            store[item.getPackageID()].add;
+                            store.put(item.add;
                         }
                 )
                 .match(
