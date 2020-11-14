@@ -11,7 +11,7 @@ public class ResultsSupplyActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        
+                        JavaScriptFunctionClass.Class
                 )
                 .build();
     }
