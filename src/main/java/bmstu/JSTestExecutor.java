@@ -3,7 +3,7 @@ package bmstu;
 import akka.actor.AbstractActor;
 
 
-public class JSPackageExecutor extends AbstractActor {
+public class JSTestExecutor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
