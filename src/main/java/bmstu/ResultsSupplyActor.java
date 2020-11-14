@@ -17,6 +17,7 @@ public class ResultsSupplyActor extends AbstractActor {
                         }
                 )
                 .match(
+                        String.class,
                         
                 )
                 .build();
