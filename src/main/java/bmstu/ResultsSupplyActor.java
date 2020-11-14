@@ -19,7 +19,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 .match(
                         JavaScriptFunctionClass.class,
                         item->{
-                            store.put(item.getPackageID() , item.getFunctionRes());
+                            store[item.getPackageID()].add;
                         }
                 )
                 .match(
