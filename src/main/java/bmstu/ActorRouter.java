@@ -13,7 +13,7 @@ public class ActorRouter extends AbstractActor {
         this.storeActor = system.actorOf(propsResultsSupplyProp , "Store");
         this.testExecutorActor = system.actorOf(
                 new RoundRobinPool(5)
-                    propsJsTestExecProp
+                    .props(propsJsTestExecProp)
 
         );
     }
