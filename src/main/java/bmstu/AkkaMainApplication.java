@@ -12,6 +12,6 @@ public class AkkaMainApplication {
     public static void main(String[] args) throws IOException {
         final ActorSystem system = ActorSystem.create("test");
         ActorRouter router = new ActorRouter(system);
-        final Materializer 
+        final Materializer materializer = 
     }
 }
