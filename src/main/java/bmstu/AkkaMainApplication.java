@@ -1,5 +1,6 @@
 package bmstu;
 
+import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -12,6 +13,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.Materializer;
 
 import java.io.IOException;
+import java.util.concurrent.CompletionStage;
 
 public class AkkaMainApplication {
 
