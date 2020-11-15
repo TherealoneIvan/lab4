@@ -6,7 +6,7 @@ public class ActorRouter extends AbstractActor {
     private ResultsSupplyActor storeActor;
     private JSTestExecutorActor testExecutorActor;
 
-    public ActorRouter(ResultsSupplyActor storeActor, JSTestExecutorActor testExecutorActor) {
+    public ActorRouter() {
         this.storeActor = storeActor;
         this.testExecutorActor = testExecutorActor;
     }
