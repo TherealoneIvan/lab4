@@ -5,5 +5,7 @@ import akka.actor.Props;
 
 public class AkkaMainApplication {
     ActorSystem system = ActorSystem.create("test");
-    Props propsJsTestExecProp = Props.create()
+    Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
+    Props propsResultsSupplyActor = Props.create(ResultsSupplyActor.class);
+    
 }
