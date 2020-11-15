@@ -10,7 +10,11 @@ public class ActorRouter extends AbstractActor {
         Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
         Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
         this.storeActor = system.actorOf(propsResultsSupplyProp , "Store");
-        this.testExecutorActor = system.actorOf(propsJsTestExecProp);
+        this.testExecutorActor = system.actorOf(
+                
+                propsJsTestExecProp
+
+        );
     }
 
     @Override
