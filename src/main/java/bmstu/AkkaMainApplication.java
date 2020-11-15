@@ -10,6 +10,6 @@ public class AkkaMainApplication {
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("test");
-
+        ActorRouter router = new ActorRouter(system);
     }
 }
