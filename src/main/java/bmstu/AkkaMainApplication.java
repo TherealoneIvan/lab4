@@ -8,5 +8,7 @@ public class AkkaMainApplication {
     ActorSystem system = ActorSystem.create("test");
     Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
     Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
-    ActorRef supplyActor = system.cre
+    ActorRef supplyActor = system.actorOf(propsResultsSupplyProp);
+    ActorRef executorJsActor = system.actorOf(propsJsTestExecProp);
+    
 }
