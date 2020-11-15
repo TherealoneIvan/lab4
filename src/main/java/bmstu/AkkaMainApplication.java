@@ -5,7 +5,7 @@ import akka.actor.ActorSystem;
 import akka.actor.Props;
 
 public class AkkaMainApplication {
-    
+    public static void main(String[] args) throws IOException {
     ActorSystem system = ActorSystem.create("test");
     Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
     Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
