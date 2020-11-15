@@ -1,6 +1,7 @@
 package bmstu;
 
 import akka.actor.*;
+import akka.routing.RoundRobinPool;
 
 public class ActorRouter extends AbstractActor {
     private ActorRef storeActor;
@@ -11,7 +12,7 @@ public class ActorRouter extends AbstractActor {
         Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
         this.storeActor = system.actorOf(propsResultsSupplyProp , "Store");
         this.testExecutorActor = system.actorOf(
-                
+                new RoundRobinPool(5)
                 propsJsTestExecProp
 
         );
