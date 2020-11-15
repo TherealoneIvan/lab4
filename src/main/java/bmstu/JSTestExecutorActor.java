@@ -8,7 +8,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 
-public class JSTestExecutor extends AbstractActor {
+public class JSTestExecutorActor extends AbstractActor {
     public String jsExecutor(String jsFunction , String jsFuncName , String jsFuncParam)
             throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager()
