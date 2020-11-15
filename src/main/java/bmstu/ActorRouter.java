@@ -1,2 +1,4 @@
-package bmstu;public class ActorRouter {
+package bmstu;
+
+public class ActorRouter {
 }
