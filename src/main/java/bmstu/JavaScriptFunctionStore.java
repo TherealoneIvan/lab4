@@ -1,7 +1,7 @@
 package bmstu;
 
 public class JavaScriptFunctionStore {
-    private String jsFunctionName , jsFunctionParam , jsFunctionExpectedResult;
+    private String jsFunctionName , jsFunctionParam , jsFunctionExpectedResult , ;
 
     public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction) {
         this.jsFunctionName = jsFunctionName;
