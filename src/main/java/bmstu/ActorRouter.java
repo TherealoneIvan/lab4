@@ -25,6 +25,10 @@ public class ActorRouter extends AbstractActor {
                             sender().tell(jsFunc , testExecutorActor);
                         }
                 )
+                .match(
+                        String.class,
+                        output -> getSelf().tell(output , storeActor)
+                )
                 .build();
     }
 }
