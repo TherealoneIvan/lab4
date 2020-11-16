@@ -11,6 +11,35 @@ public class JsonJsPackage {
     public ArrayList<JavaScriptFunctionStore> test;
 
     @JsonCreator
-    
+    public JsonJsPackage(String packageId, String jsScript,
+                         String functionName, ArrayList<JavaScriptFunctionStore> test) {
+        this.packageId = packageId;
+        this.jsScript = jsScript;
+        this.functionName = functionName;
+        this.test = test;
+    }
 
+    public String getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(String packageId) {
+        this.packageId = packageId;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
+    public void setJsScript(String jsScript) {
+        this.jsScript = jsScript;
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    public void setFunctionName(String functionName) {
+        this.functionName = functionName;
+    }
 }
