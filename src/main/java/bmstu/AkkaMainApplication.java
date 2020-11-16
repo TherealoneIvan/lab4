@@ -24,7 +24,7 @@ public class AkkaMainApplication extends AllDirectives {
 
     public static void main(String[] args) throws IOException {
         final ActorSystem system = ActorSystem.create("test");
-        ActorRouter router = new ActorRouter(system);
+        ActorRef router = ;
         final Http http = Http.get(system);
         final AkkaMainApplication app = new AkkaMainApplication();
         final Materializer materializer = ActorMaterializer.create(system);
