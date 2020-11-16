@@ -22,8 +22,8 @@ public class JSTestExecutorActor extends AbstractActor {
         return receiveBuilder()
                 .match(
                         JavaScriptFunctionStore.class,
-                        item->jsExecutor(item.getJsFunctionBody(), item.getJsFunctionName()
-                                ,item.getJsFunctionParam())
+                        item->getSender().tell(jsExecutor(item.getJsFunctionBody(), item.getJsFunctionName()
+                                ,item.getJsFunctionParam() , )
                 )
                 .build();
     }
