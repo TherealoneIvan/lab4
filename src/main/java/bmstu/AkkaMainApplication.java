@@ -43,13 +43,8 @@ public class AkkaMainApplication extends AllDirectives {
     }
     private Route createRoute(ActorSystem system){
          Route route =
-                 get( () -> {
-                     Future<Object> result = Patterns.ask(,
-                             SemaphoreActor.makeRequest(), 5000);
-                     return completeOKWithFuture(result, Jackson.marshaller());
-                 })
                  post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
-                     ActorRouter.tell(msg, ActorRef.noSender());
+                     ActorRouter.
                      return complete("Test started!");
                  })
     }
