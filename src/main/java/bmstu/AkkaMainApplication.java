@@ -46,6 +46,9 @@ public class AkkaMainApplication extends AllDirectives {
                      Future<Object> result = Patterns.ask(,
                              SemaphoreActor.makeRequest(), 5000);
                      return completeOKWithFuture(result, Jackson.marshaller());
-                 }))
+                 })
+                 post(()->{
+
+                 })
     }
 }
