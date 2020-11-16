@@ -21,7 +21,9 @@ public class ActorRouter extends AbstractActor {
         return receiveBuilder()
                 .match(
                         JavaScriptFunctionStore.class,
-                        sender().tell(new JavaScriptFunctionStore());
+                        jsFunc -> {
+                            sender().tell(jsFunc , );
+                        }
                 )
 
     }
