@@ -3,6 +3,7 @@ package bmstu;
 import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
@@ -24,7 +25,7 @@ public class AkkaMainApplication extends AllDirectives {
 
     public static void main(String[] args) throws IOException {
         final ActorSystem system = ActorSystem.create("test");
-        ActorRef router = system.actorOf();
+        ActorRef router = system.actorOf(Props.create(ActorRouter.class));
         final Http http = Http.get(system);
         final AkkaMainApplication app = new AkkaMainApplication();
         final Materializer materializer = ActorMaterializer.create(system);
