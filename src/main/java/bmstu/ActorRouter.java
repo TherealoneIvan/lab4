@@ -25,7 +25,6 @@ public class ActorRouter extends AbstractActor {
                             sender().tell(jsFunc , testExecutorActor);
                         }
                 )
-                .match()
                 .build();
     }
 }
