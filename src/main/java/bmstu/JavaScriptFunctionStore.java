@@ -1,12 +1,12 @@
 package bmstu;
 
 public class JavaScriptFunctionStore {
-    private String jsFunctionName , jsFunctionParam , jsFunctionExpectedResult;
+    private String jsFunctionName , jsFunctionParam , jsFunctionBody;
 
     public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction) {
         this.jsFunctionName = jsFunctionName;
         this.jsFunctionParam = jsFunctionParam;
-        this.jsFunctionExpectedResult = jsFunction;
+        this.jsFunctionBody = jsFunction;
     }
 
     public String getJsFunctionName() {
@@ -25,11 +25,11 @@ public class JavaScriptFunctionStore {
         this.jsFunctionParam = jsFunctionParam;
     }
 
-    public String getJsFunctionExpectedResult() {
-        return jsFunctionExpectedResult;
+    public String getJsFunctionBody() {
+        return jsFunctionBody;
     }
 
-    public void setJsFunctionExpectedResult(String jsFunctionExpectedResult) {
-        this.jsFunctionExpectedResult = jsFunctionExpectedResult;
+    public void setJsFunctionBody(String jsFunctionBody) {
+        this.jsFunctionBody = jsFunctionBody;
     }
 }
