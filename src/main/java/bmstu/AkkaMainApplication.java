@@ -42,10 +42,10 @@ public class AkkaMainApplication extends AllDirectives {
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
     }
-    private Route createRoute(ActorSystem system , ){
+    private Route createRoute(ActorSystem system , ActorRef router){
          Route route =
                  post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
-                     router
+                     router.tell();
                      return complete("Test started!");
                  })
     }
