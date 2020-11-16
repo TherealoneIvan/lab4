@@ -49,7 +49,7 @@ public class AkkaMainApplication extends AllDirectives {
                      return completeOKWithFuture(result, Jackson.marshaller());
                  })
                  post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
-                     JSTestExecutorActor.tell(msg, ActorRef.noSender());
+                     ActorRouter.tell(msg, ActorRef.noSender());
                      return complete("Test started!");
                  })
     }
