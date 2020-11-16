@@ -22,9 +22,10 @@ public class ActorRouter extends AbstractActor {
                 .match(
                         JavaScriptFunctionStore.class,
                         jsFunc -> {
-                            sender().tell(jsFunc , );
+                            sender().tell(jsFunc , testExecutorActor);
                         }
                 )
-
+                .match()
+                .build();
     }
 }
