@@ -1,2 +1,5 @@
-package bmstu;public class JsonJsPackage {
+package bmstu;
+
+public class JsonJsPackage {
+    
 }
