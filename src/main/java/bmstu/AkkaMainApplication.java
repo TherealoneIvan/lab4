@@ -47,8 +47,9 @@ public class AkkaMainApplication extends AllDirectives {
                              SemaphoreActor.makeRequest(), 5000);
                      return completeOKWithFuture(result, Jackson.marshaller());
                  })
-                 post(()->{
-
+                 post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
+                     testPackageActor.tell(msg, ActorRef.noSender());
+                     return complete("Test started!");
                  })
     }
 }
