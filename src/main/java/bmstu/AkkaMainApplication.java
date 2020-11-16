@@ -21,10 +21,10 @@ public class AkkaMainApplication extends AllDirectives {
         final ActorSystem system = ActorSystem.create("test");
         ActorRouter router = new ActorRouter(system);
         final Http http = Http.get(system);
-        final AkkaMainApplication app = new 
+        final AkkaMainApplication app = new AkkaMainApplication();
         final Materializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                instance.createRoute(system).flow(system, materializer);
+                .createRoute(system).flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost("localhost", 8080),
