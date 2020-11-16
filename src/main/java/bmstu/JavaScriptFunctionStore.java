@@ -1,12 +1,17 @@
 package bmstu;
 
 public class JavaScriptFunctionStore {
-    private String jsFunctionName , jsFunctionParam , jsFunctionBody;
+    private String jsFunctionName , jsFunctionParam , jsFunctionBody , packageId;
 
-    public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction) {
+    public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction , String packageId) {
         this.jsFunctionName = jsFunctionName;
         this.jsFunctionParam = jsFunctionParam;
         this.jsFunctionBody = jsFunction;
+        this.packageId = packageId;
+    }
+
+    public String getPackageId() {
+        return packageId;
     }
 
     public String getJsFunctionName() {
