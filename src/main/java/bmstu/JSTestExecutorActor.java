@@ -1,6 +1,7 @@
 package bmstu;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -23,7 +24,7 @@ public class JSTestExecutorActor extends AbstractActor {
                 .match(
                         JavaScriptFunctionStore.class,
                         item->getSender().tell(jsExecutor(item.getJsFunctionBody(), item.getJsFunctionName()
-                                ,item.getJsFunctionParam() , )
+                                ,item.getJsFunctionParam()), ActorRef.noSender())
                 )
                 .build();
     }
