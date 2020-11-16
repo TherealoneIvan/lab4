@@ -9,7 +9,7 @@ import java.util.Map;
 public class ResultsSupplyActor extends AbstractActor {
 
     private Map<String , ArrayList<String>> store = new HashMap<>();
-    private void resultStoring(JavaScriptFunctionClass item){
+    private void resultStoring(JavaScriptFunctionRes item){
         ArrayList<String> tmpArray;
         if (store.containsKey(item.getPackageID())){
             tmpArray = store.get(item.getPackageID());
@@ -32,7 +32,7 @@ public class ResultsSupplyActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        JavaScriptFunctionClass.class,
+                        JavaScriptFunctionRes.class,
                         this::resultStoring
                 )
                 .match(

@@ -1,9 +1,9 @@
 package bmstu;
 
-public class JavaScriptFunctionClass {
+public class JavaScriptFunctionRes {
     private String packageID , functionRes;
 
-    public JavaScriptFunctionClass(String packageID, String functionRes) {
+    public JavaScriptFunctionRes(String packageID, String functionRes) {
         this.packageID = packageID;
         this.functionRes = functionRes;
     }
