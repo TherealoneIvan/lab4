@@ -1,6 +1,7 @@
 package bmstu;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
@@ -48,7 +49,7 @@ public class AkkaMainApplication extends AllDirectives {
                      return completeOKWithFuture(result, Jackson.marshaller());
                  })
                  post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
-                     testPackageActor.tell(msg, ActorRef.noSender());
+                     JSTestExecutorActor.tell(msg, ActorRef.noSender());
                      return complete("Test started!");
                  })
     }
