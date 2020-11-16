@@ -19,7 +19,6 @@ public class AkkaMainApplication {
         ActorRouter router = new ActorRouter(system);
         final Http http = Http.get(system);
         final Materializer materializer = ActorMaterializer.create(system);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                instance.createRoute(system).flow(system, materializer);
+        
     }
 }
