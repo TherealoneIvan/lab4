@@ -1,8 +1,11 @@
 package bmstu;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class JavaScriptFunctionStore {
     private String jsFunctionName , jsFunctionParam , jsFunctionBody , packageId;
 
+    @JsonCreator
     public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction , String packageId) {
         this.jsFunctionName = jsFunctionName;
         this.jsFunctionParam = jsFunctionParam;

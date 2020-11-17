@@ -44,7 +44,7 @@ public class AkkaMainApplication extends AllDirectives {
     }
     private Route createRoute(ActorSystem system , ActorRef router){
          Route route =
-                 post(()->entity(Jackson.unmarshaller(JsonJsPackage.class), msg -> {
+                 post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
                      router.tell();
                      return complete("Test started!");
                  })
