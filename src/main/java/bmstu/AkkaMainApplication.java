@@ -48,7 +48,9 @@ public class AkkaMainApplication extends AllDirectives {
                      router.tell(msg , router);
                      return complete("Test started!");
                  }));
-                 get(()
+                 get(()->{
+                     
+                         }
 
                  )
     }
