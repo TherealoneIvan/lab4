@@ -48,8 +48,8 @@ public class AkkaMainApplication extends AllDirectives {
                      router.tell(msg , router);
                      return complete("Test started!");
                  }));
-                 get((msg)->{
-                     Future<Object> result = Patterns.ask(router ,msg ,5000);
+                 get(()->{
+                     Future<Object> result = Patterns.ask(router , ,5000);
                         return completeOKWithFuture(result, Jackson.marshaller());
                          }
 
