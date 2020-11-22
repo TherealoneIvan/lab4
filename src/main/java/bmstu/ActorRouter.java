@@ -6,16 +6,13 @@ import akka.routing.RoundRobinPool;
 public class ActorRouter extends AbstractActor {
     private ActorRef storeActor;
     private ActorRef testExecutorActor;
-
-    public ActorRouter(ActorSystem system) {
-        Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
-        Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
-        this.storeActor = system.actorOf(propsResultsSupplyProp , "Store");
-        this.testExecutorActor = system.actorOf(
-                new RoundRobinPool(5)
+    Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
+    Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
+    storeActor = system.actorOf(propsResultsSupplyProp , "Store");
+    testExecutorActor = system.actorOf(
+            new RoundRobinPool(5)
                     .props(propsJsTestExecProp)
         );
-    }
     public String makeRequest(String packageId){
         return packageId;
     }
