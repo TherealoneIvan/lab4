@@ -47,13 +47,13 @@ public class AkkaMainApplication extends AllDirectives {
                  post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
                      router.tell(msg , router);
                      return complete("Test started!");
-                 }));
+                 })).orElse(
                  get(()->
                      parameter("packageId" , key -> {
                          Future<Object> result = Patterns.ask(router,
                                  new JavaScriptFunctionRes(key), 5000);
                          return completeOKWithFuture(result, Jackson.marshaller());
                      }
-                 ));
+                 )));
     }
 }
