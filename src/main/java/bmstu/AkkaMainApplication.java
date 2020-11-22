@@ -55,5 +55,6 @@ public class AkkaMainApplication extends AllDirectives {
                          return completeOKWithFuture(result, Jackson.marshaller());
                      }
                  )));
+        return route;
     }
 }
