@@ -49,7 +49,7 @@ public class AkkaMainApplication extends AllDirectives {
                      return complete("Test started!");
                  }));
                  get(()->{
-                     
+                     Future<>
                          }
 
                  )
