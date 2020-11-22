@@ -50,7 +50,7 @@ public class AkkaMainApplication extends AllDirectives {
                  }));
                  get(()->
                      parameter("packageId" , key -> {
-                         Future<Object> result = (Future<Object>) Patterns.ask(router,
+                         Future<Object> result = Patterns.ask(router,
                                  new JavaScriptFunctionRes(key), 5000);
                          return completeOKWithFuture(result, Jackson.marshaller());
                      }
