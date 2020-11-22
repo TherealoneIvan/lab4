@@ -16,6 +16,9 @@ public class ActorRouter extends AbstractActor {
                     .props(propsJsTestExecProp)
         );
     }
+    public String makeRequest(String packageId){
+        return packageId;
+    }
     @Override
     public Receive createReceive() {
         return receiveBuilder()
