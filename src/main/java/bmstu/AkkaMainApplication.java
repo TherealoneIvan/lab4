@@ -49,9 +49,10 @@ public class AkkaMainApplication extends AllDirectives {
                      return complete("Test started!");
                  }));
                  get(()->{
-                     parameter("packageId" , key ->
+                     parameter("packageId" , key ->{
                      Future<Object> result = Patterns.ask(router ,  ,5000);
                         return completeOKWithFuture(result, Jackson.marshaller());
+                            }
                          }
 
                  )
