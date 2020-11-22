@@ -3,9 +3,9 @@ package bmstu;
 public class JavaScriptFunctionRes {
     private String packageID , functionRes;
 
-    public JavaScriptFunctionRes(String packageID, String functionRes) {
+    public JavaScriptFunctionRes(String packageID) {
         this.packageID = packageID;
-        this.functionRes = functionRes;
+//        this.functionRes = functionRes;
     }
 
     public String getPackageID() {
