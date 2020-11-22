@@ -54,6 +54,6 @@ public class AkkaMainApplication extends AllDirectives {
                                  new JavaScriptFunctionRes(key), 5000);
                          return completeOKWithFuture(result, Jackson.marshaller());
                      }
-                 )
+                 ));
     }
 }
