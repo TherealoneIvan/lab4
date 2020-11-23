@@ -21,9 +21,11 @@ public class JSTestExecutorActor extends AbstractActor {
                 .getEngineByName(JS_COMPILER);
         engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
-        System.out.println(jsFunction + " " + jsFuncName + " " + jsFuncParam.toString() + " " + packageId);
+//        System.out.println(jsFunction + " " + jsFuncName + " " + jsFuncParam.toString() + " " + packageId);
+        Object o = invocable.invokeFunction(jsFuncName, jsFuncParam);
+        System.out.println(o.toString());
         return  new JavaScriptFunctionRes(packageId,
-                invocable.invokeFunction(jsFuncName, jsFuncParam).toString());
+                o.toString());
     }
     @Override
     public Receive createReceive() {
@@ -31,8 +33,6 @@ public class JSTestExecutorActor extends AbstractActor {
                 .match(
                         OneTest.class,
                         item->{
-                            System.out.println(jsExecutor(item.getFunction(), item.getName()
-                                    ,item.getParams() , item.getPackageId()).toString());
                             getSender().tell(jsExecutor(item.getFunction(), item.getName()
                                     ,item.getParams() , item.getPackageId()), ActorRef.noSender());
                         }
