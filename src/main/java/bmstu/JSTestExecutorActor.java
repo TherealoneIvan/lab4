@@ -7,11 +7,12 @@ import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.util.ArrayList;
 
 
 public class JSTestExecutorActor extends AbstractActor {
     public JavaScriptFunctionRes jsExecutor(String jsFunction , String jsFuncName ,
-                                            String jsFuncParam , String packageId)
+                                            ArrayList<String> jsFuncParam , String packageId)
             throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager()
                 .getEngineByName("nashorn");
