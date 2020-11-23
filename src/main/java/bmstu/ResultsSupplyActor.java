@@ -37,7 +37,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 )
                 .match(
                         String.class,
-                        getSender().tell(this::packageIdPrinter)
+                        getSender().tell(this::packageIdPrinter , self())
                 )
                 .build();
     }
