@@ -23,7 +23,6 @@ public class ActorRouter extends AbstractActor {
                         JavaScriptFunctionStore.class,
                         jsFunc -> {
                             for (int i = 0 ; i < jsFunc.jsFunctionParam.size() ; i++) {
-                                System.out.println(12);
                                 testExecutorActor.tell(
                                 new OneTest(jsFunc.jsFunctionName,
                                             jsFunc.jsFunctionParam.get(i).testName,
@@ -38,7 +37,7 @@ public class ActorRouter extends AbstractActor {
                         JavaScriptFunctionRes.class,
                         output -> {
                             System.out.println("second debug");
-                            getSelf().tell(output , storeActor);
+                            storeActor.tell(output , self());
                         }
                 )
                 .build();
