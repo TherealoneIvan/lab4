@@ -46,7 +46,6 @@ public class ActorRouter extends AbstractActor {
                 .match(
                         String.class,
                         id -> {
-                            System.out.println("id =" + id);
                             Future<Object> result = Patterns.ask(storeActor , id , TIMEOUT_MILLIS);
                             getSender().tell(result , self());
                         }
