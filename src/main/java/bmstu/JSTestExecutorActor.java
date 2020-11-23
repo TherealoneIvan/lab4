@@ -27,8 +27,12 @@ public class JSTestExecutorActor extends AbstractActor {
         return receiveBuilder()
                 .match(
                         OneTest.class,
-                        item->getSender().tell(jsExecutor(item.getFunction(), item.getName()
-                                ,item.getParams() , item.getPackageId()), ActorRef.noSender())
+                        item->{
+                            System.out.println(jsExecutor(item.getFunction(), item.getName()
+                                    ,item.getParams() , item.getPackageId()).toString());
+                            getSender().tell(jsExecutor(item.getFunction(), item.getName()
+                                    ,item.getParams() , item.getPackageId()), ActorRef.noSender());
+                        }
                 )
                 .build();
     }

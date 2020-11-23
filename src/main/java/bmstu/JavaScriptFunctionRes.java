@@ -20,6 +20,14 @@ public class JavaScriptFunctionRes {
         return functionRes;
     }
 
+    @Override
+    public String toString() {
+        return "JavaScriptFunctionRes{" +
+                "packageID='" + packageID + '\'' +
+                ", functionRes='" + functionRes + '\'' +
+                '}';
+    }
+
     public void setFunctionRes(String functionRes) {
         this.functionRes = functionRes;
     }
