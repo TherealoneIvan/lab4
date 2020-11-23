@@ -1,6 +1,7 @@
 package bmstu;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class JavaScriptFunctionStore {
     private final String ID = "packageId";
@@ -8,8 +9,12 @@ public class JavaScriptFunctionStore {
     private final String functionName = "functionName";
     private final String functParam = "tests";
 
-    private String jsFunctionName
-            , jsFunctionParam , jsFunctionBody , packageId;
+    @JsonProperty
+    private String jsFunctionName;
+    @JsonProperty
+    private String jsFunctionParam;
+    @JsonProperty
+    private String jsFunctionBody , packageId;
 
 
     @JsonCreator
