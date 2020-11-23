@@ -43,6 +43,7 @@ public class AkkaMainApplication extends AllDirectives {
                 .thenAccept(unbound -> system.terminate());
     }
     private Route createRoute(ActorSystem system , ActorRef router){
+        System.out.println("debug message 2");
          Route route =
                  post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
                      System.out.println("debug message 1");
