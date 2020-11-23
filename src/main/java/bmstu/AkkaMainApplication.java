@@ -46,7 +46,6 @@ public class AkkaMainApplication extends AllDirectives {
                 .thenAccept(unbound -> system.terminate());
     }
     private Route createRoute(ActorSystem system , ActorRef router){
-        System.out.println("debug message 2");
         return get(()->
                 parameter("packageId" , key -> {
                     Future<Object> result = Patterns.ask(router, key, TIMEOUT_MILLIS);
@@ -54,7 +53,6 @@ public class AkkaMainApplication extends AllDirectives {
                 }
         )).orElse(
             post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
-                System.out.println("debug message 1");
                 router.tell(msg, ActorRef.noSender());
                 return complete("Test started!");
             })));
