@@ -8,11 +8,12 @@ import scala.concurrent.Future;
 public class ActorRouter extends AbstractActor {
 
     public static final int TIMEOUT_MILLIS = 5000;
+    public static final int NR = 5;
     Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
     Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
     private ActorRef storeActor = getContext().actorOf(propsResultsSupplyProp , "Store");
     private ActorRef testExecutorActor = getContext().actorOf(
-            new RoundRobinPool(5)
+            new RoundRobinPool(NR)
                     .props(propsJsTestExecProp)
         );
 

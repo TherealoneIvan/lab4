@@ -24,6 +24,7 @@ import java.util.concurrent.CompletionStage;
 public class AkkaMainApplication extends AllDirectives {
 
     public static final int TIMEOUT_MILLIS = 5000;
+    public static final int PORT = 8080;
 
     public static void main(String[] args) throws IOException {
         final ActorSystem system = ActorSystem.create("test");
@@ -35,7 +36,7 @@ public class AkkaMainApplication extends AllDirectives {
                 app.createRoute(system , router).flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost("localhost", 8080),
+                ConnectHttp.toHost("localhost", PORT),
                 materializer
         );
         System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
