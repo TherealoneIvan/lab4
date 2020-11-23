@@ -44,7 +44,7 @@ public class ActorRouter extends AbstractActor {
                         String.class,
                         id -> {
                             System.out.println("id =" + id);
-                            storeActor.tell(id , self())
+                            storeActor.tell(id , self());
                         }
                 )
                 .build();
