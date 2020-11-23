@@ -1,2 +1,5 @@
-package bmstu;public class Test {
+package bmstu;
+
+public class Test {
+    
 }
