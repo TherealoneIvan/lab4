@@ -37,7 +37,7 @@ public class ActorRouter extends AbstractActor {
                         JavaScriptFunctionRes.class,
                         output -> {
                             System.out.println("second debug");
-                            getSelf().tell(output , storeActor)
+                            getSelf().tell(output , storeActor);
                         }
                 )
                 .build();
