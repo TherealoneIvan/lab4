@@ -19,14 +19,14 @@ public class ResultsSupplyActor extends AbstractActor {
         tmpArray.add(item.getFunctionRes());
         store.put(item.getPackageID() , tmpArray);
     }
-    private String packageIdPrinter(String packageID) {
+    private JavaScriptFunctionRes packageIdPrinter(String packageID) {
         if (store.containsKey(packageID)) {
             ArrayList<String> tmpArray = store.get(packageID);
             for (int i = 0; i < tmpArray.size(); i++) {
-                return tmpArray.get(i);
+                return new JavaScriptFunctionRes( packageID , tmpArray.get(i) );
             }
         }
-        return "There are no tests";
+        return new  JavaScriptFunctionRes(packageID , "There are no tests" );
     }
 
     public Receive createReceive() {
