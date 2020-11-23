@@ -45,6 +45,7 @@ public class AkkaMainApplication extends AllDirectives {
     private Route createRoute(ActorSystem system , ActorRef router){
          Route route =
                  post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
+                     System.out.println("debug message 1");
                      router.tell(msg , router);
                      return complete("Test started!");
                  })).orElse(
