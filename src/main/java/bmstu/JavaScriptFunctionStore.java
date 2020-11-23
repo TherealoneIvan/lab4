@@ -3,7 +3,7 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class JavaScriptFunctionStore {
-    private final 
+    private final String ID
     private String jsFunctionName , jsFunctionParam , jsFunctionBody , packageId;
 
 
