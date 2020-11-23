@@ -53,7 +53,7 @@ public class AkkaMainApplication extends AllDirectives {
         )).orElse(
             post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
                 System.out.println("debug message 1");
-                router.tell(msg, router);
+                router.tell(msg, ActorRef.noSender());
                 return complete("Test started!");
             })));
     }
