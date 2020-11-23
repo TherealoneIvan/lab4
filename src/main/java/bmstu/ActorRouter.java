@@ -1,7 +1,9 @@
 package bmstu;
 
 import akka.actor.*;
+import akka.pattern.Patterns;
 import akka.routing.RoundRobinPool;
+import scala.concurrent.Future;
 
 public class ActorRouter extends AbstractActor {
 
@@ -44,8 +46,8 @@ public class ActorRouter extends AbstractActor {
                         String.class,
                         id -> {
                             System.out.println("id =" + id);
-                            
-                            storeActor.tell(id , self());
+                            Future<Object> result = Patterns.ask(storeActor , id , 5000);
+                            getSender().tell(result , self());
                         }
                 )
 
