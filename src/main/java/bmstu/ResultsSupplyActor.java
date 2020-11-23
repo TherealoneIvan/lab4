@@ -1,6 +1,7 @@
 package bmstu;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 .match(
                         String.class,
                         id -> {
-                            getSender().tell(packageIdPrinter(id) , self());
+                            getSender().tell(packageIdPrinter(id) , ActorRef.noSender());
                         }
                 )
                 .build();
