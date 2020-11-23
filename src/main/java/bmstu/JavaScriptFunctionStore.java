@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public class JavaScriptFunctionStore {
     private final String ID = "packageId";
     private final String function = "jsScript";
-    private final String functionName = ""
+    private final String functionName = "functionName";
+    private final String 
     private String jsFunctionName , jsFunctionParam , jsFunctionBody , packageId;
 
 
