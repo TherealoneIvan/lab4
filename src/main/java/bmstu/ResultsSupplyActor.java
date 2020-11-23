@@ -19,16 +19,16 @@ public class ResultsSupplyActor extends AbstractActor {
         tmpArray.add(item.getFunctionRes());
         store.put(item.getPackageID() , tmpArray);
     }
-    private void packageIdPrinter(String packageID) {
+    private String packageIdPrinter(String packageID) {
         if (store.containsKey(packageID)) {
             ArrayList<String> tmpArray = store.get(packageID);
             for (int i = 0; i < tmpArray.size(); i++) {
-                System.out.println(tmpArray.get(i));
+                return tmpArray.get(i);
             }
-        }else {
-            System.out.println("There are no tests");
         }
+        return "There are no tests";
     }
+
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
