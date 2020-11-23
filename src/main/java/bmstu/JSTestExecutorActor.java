@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class JSTestExecutorActor extends AbstractActor {
     public JavaScriptFunctionRes jsExecutor(String jsFunction , String jsFuncName ,
-                                            ArrayList<String> jsFuncParam , String packageId)
+                                            ArrayList<Test> jsFuncParam , String packageId)
             throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager()
                 .getEngineByName("nashorn");
