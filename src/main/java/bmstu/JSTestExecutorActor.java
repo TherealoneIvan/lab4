@@ -21,7 +21,7 @@ public class JSTestExecutorActor extends AbstractActor {
                 .getEngineByName(JS_COMPILER);
         engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
-        System.out.println("debug 1");
+        System.out.println(jsFunction + " " + jsFuncName + " " + jsFuncParam.toString() + " " + packageId);
         return  new JavaScriptFunctionRes(packageId,
                 invocable.invokeFunction(jsFuncName, jsFuncParam).toString());
     }
