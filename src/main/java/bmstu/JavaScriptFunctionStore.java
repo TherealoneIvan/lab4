@@ -9,12 +9,12 @@ public class JavaScriptFunctionStore {
     private final String ID = "packageId";
     private final String FUNCTION = "jsScript";
     private final String FUNCTION_NAME = "functionName";
-    private final String functParam = "tests";
+    private final String FUNCTION_PARAM = "tests";
 
     @JsonProperty(FUNCTION_NAME)
     private String jsFunctionName;
-    @JsonProperty(functParam)
-    private ArrayList<String> jsFunctionParam;
+    @JsonProperty(FUNCTION_PARAM)
+    private ArrayList<Test> jsFunctionParam;
     @JsonProperty(FUNCTION)
     private String jsFunctionBody;
     @JsonProperty(ID)
@@ -23,7 +23,7 @@ public class JavaScriptFunctionStore {
 
     @JsonCreator
     public JavaScriptFunctionStore( @JsonProperty(FUNCTION_NAME) String jsFunctionName,
-                                    @JsonProperty(functParam) ArrayList<String>  jsFunctionParam,
+                                    @JsonProperty(FUNCTION_PARAM) ArrayList<Test>  jsFunctionParam,
                                     @JsonProperty(FUNCTION) String jsFunction ,
                                     @JsonProperty(ID) String packageId)
     {
@@ -46,11 +46,11 @@ public class JavaScriptFunctionStore {
     }
 
 
-    public ArrayList<String> getJsFunctionParam() {
+    public ArrayList<Test> getJsFunctionParam() {
         return jsFunctionParam;
     }
 
-    public void setJsFunctionParam(ArrayList<String> jsFunctionParam) {
+    public void setJsFunctionParam(ArrayList<Test> jsFunctionParam) {
         this.jsFunctionParam = jsFunctionParam;
     }
 
