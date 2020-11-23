@@ -49,7 +49,7 @@ public class AkkaMainApplication extends AllDirectives {
                     Future<Object> result = Patterns.ask(router,
                             new JavaScriptFunctionRes(key, ""), 5000);
                     return completeOKWithFuture(result, Jackson.marshaller());
-                } 
+                }
         )).orElse(
             post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
                 System.out.println("debug message 1");
