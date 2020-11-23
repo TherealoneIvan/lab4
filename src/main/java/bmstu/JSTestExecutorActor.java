@@ -21,11 +21,8 @@ public class JSTestExecutorActor extends AbstractActor {
                 .getEngineByName(JS_COMPILER);
         engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
-//        System.out.println(jsFunction + " " + jsFuncName + " " + jsFuncParam.toString() + " " + packageId);
-        Object o = invocable.invokeFunction(jsFuncName, jsFuncParam);
-        System.out.println(o.toString());
         return  new JavaScriptFunctionRes(packageId,
-                o.toString());
+                invocable.invokeFunction(jsFuncName, jsFuncParam.toArray()).toString());
     }
     @Override
     public Receive createReceive() {
