@@ -23,6 +23,8 @@ import java.util.concurrent.CompletionStage;
 
 public class AkkaMainApplication extends AllDirectives {
 
+    public static final int TIMEOUT_MILLIS = 5000;
+
     public static void main(String[] args) throws IOException {
         final ActorSystem system = ActorSystem.create("test");
         ActorRef router = system.actorOf(Props.create(ActorRouter.class));
@@ -46,7 +48,7 @@ public class AkkaMainApplication extends AllDirectives {
         System.out.println("debug message 2");
         return get(()->
                 parameter("packageId" , key -> {
-                    Future<Object> result = Patterns.ask(router, key, 5000);
+                    Future<Object> result = Patterns.ask(router, key, TIMEOUT_MILLIS);
                     return completeOKWithFuture(result, Jackson.marshaller());
                 }
         )).orElse(
