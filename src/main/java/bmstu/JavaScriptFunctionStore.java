@@ -3,6 +3,8 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+
 public class JavaScriptFunctionStore {
     private final String ID = "packageId";
     private final String function = "jsScript";
@@ -12,7 +14,7 @@ public class JavaScriptFunctionStore {
     @JsonProperty(functionName)
     private String jsFunctionName;
     @JsonProperty(functParam)
-    private String jsFunctionParam;
+    private ArrayList<String> jsFunctionParam;
     @JsonProperty(function)
     private String jsFunctionBody;
     @JsonProperty(ID)
@@ -21,7 +23,7 @@ public class JavaScriptFunctionStore {
 
     @JsonCreator
     public JavaScriptFunctionStore( @JsonProperty(functionName) String jsFunctionName,
-                                    @JsonProperty(functParam) String jsFunctionParam,
+                                    @JsonProperty(functParam) ArrayList<String>  jsFunctionParam,
                                     @JsonProperty(function) String jsFunction ,
                                     @JsonProperty(ID) String packageId)
     {
@@ -43,11 +45,12 @@ public class JavaScriptFunctionStore {
         this.jsFunctionName = jsFunctionName;
     }
 
-    public String getJsFunctionParam() {
+
+    public ArrayList<String> getJsFunctionParam() {
         return jsFunctionParam;
     }
 
-    public void setJsFunctionParam(String jsFunctionParam) {
+    public void setJsFunctionParam(ArrayList<String> jsFunctionParam) {
         this.jsFunctionParam = jsFunctionParam;
     }
 
