@@ -11,11 +11,14 @@ import java.util.ArrayList;
 
 
 public class JSTestExecutorActor extends AbstractActor {
+
+    public static final String JS_COMPILER = "nashorn";
+
     public JavaScriptFunctionRes jsExecutor(String jsFunction , String jsFuncName ,
                                             ArrayList<Integer> jsFuncParam , String packageId)
             throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager()
-                .getEngineByName("nashorn");
+                .getEngineByName(JS_COMPILER);
         engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
         System.out.println("debug 1");
