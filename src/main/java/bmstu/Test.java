@@ -35,13 +35,13 @@ public class Test {
     }
 
     @JsonProperty(TEST_NAME)
-    private String testName;
+    public String testName;
 
     @JsonProperty(EXPECTED_RESULT)
-    private String expRes;
+    public String expRes;
 
     @JsonProperty(PARAMS)
-    private ArrayList<Integer> params;
+    public ArrayList<Integer> params;
 
     @JsonCreator
     public Test(@JsonProperty(TEST_NAME) String testName,
