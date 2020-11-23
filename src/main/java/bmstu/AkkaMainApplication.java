@@ -44,17 +44,17 @@ public class AkkaMainApplication extends AllDirectives {
     }
     private Route createRoute(ActorSystem system , ActorRef router){
         System.out.println("debug message 2");
-        return post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
-            System.out.println("debug message 1");
-            router.tell(msg , router);
-            return complete("Test started!");
-        })).orElse(
-        get(()->
-            parameter("packageId" , key -> {
-                Future<Object> result = Patterns.ask(router,
-                        new JavaScriptFunctionRes(key , ""), 5000);
-                return completeOKWithFuture(result, Jackson.marshaller());
-            }
-        )));
+        return get(()->
+                parameter("packageId" , key -> {
+                    Future<Object> result = Patterns.ask(router,
+                            new JavaScriptFunctionRes(key, ""), 5000);
+                    return completeOKWithFuture(result, Jackson.marshaller());
+                }
+        )).orElse(
+            post(()->entity(Jackson.unmarshaller(JavaScriptFunctionStore.class), msg -> {
+                System.out.println("debug message 1");
+                router.tell(msg, router);
+                return complete("Test started!");
+            })));
     }
 }
