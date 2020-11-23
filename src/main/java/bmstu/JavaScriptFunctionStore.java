@@ -8,7 +8,8 @@ public class JavaScriptFunctionStore {
     private final String functionName = "functionName";
     private final String functParam = "tests";
 
-    private String jsFunctionName , jsFunctionParam , jsFunctionBody , packageId;
+    private String jsFunctionName
+            , jsFunctionParam , jsFunctionBody , packageId;
 
 
     @JsonCreator
