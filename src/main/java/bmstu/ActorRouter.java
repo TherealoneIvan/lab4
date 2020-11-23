@@ -25,6 +25,7 @@ public class ActorRouter extends AbstractActor {
                             for (int i = 0 ; i < jsFunc.jsFunctionParam.size() ; i++) {
                                 getSelf().tell(
                                 new OneTest(jsFunc.jsFunctionName,
+                                            jsFunc.jsFunctionParam.get(i).testName,
                                             jsFunc.jsFunctionParam.get(i).expRes,
                                             jsFunc.jsFunctionParam.get(i).params,
                                             jsFunc.jsFunctionBody,
