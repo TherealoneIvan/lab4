@@ -7,6 +7,7 @@ import scala.concurrent.Future;
 
 public class ActorRouter extends AbstractActor {
 
+    public static final int TIMEOUT_MILLIS = 5000;
     Props propsJsTestExecProp = Props.create(JSTestExecutorActor.class);
     Props propsResultsSupplyProp = Props.create(ResultsSupplyActor.class);
     private ActorRef storeActor = getContext().actorOf(propsResultsSupplyProp , "Store");
@@ -46,7 +47,7 @@ public class ActorRouter extends AbstractActor {
                         String.class,
                         id -> {
                             System.out.println("id =" + id);
-                            Future<Object> result = Patterns.ask(storeActor , id , 5000);
+                            Future<Object> result = Patterns.ask(storeActor , id , TIMEOUT_MILLIS);
                             getSender().tell(result , self());
                         }
                 )
