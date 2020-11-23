@@ -42,7 +42,10 @@ public class ActorRouter extends AbstractActor {
                 )
                 .match(
                         String.class,
-                        id -> storeActor.tell(id , self())
+                        id -> {
+                            System.out.println("id =" + id);
+                            storeActor.tell(id , self())
+                        }
                 )
                 .build();
     }
