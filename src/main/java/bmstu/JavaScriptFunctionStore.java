@@ -11,14 +11,14 @@ public class JavaScriptFunctionStore {
     private final String FUNCTION_NAME = "functionName";
     private final String FUNCTION_PARAM = "tests";
 
+    @JsonProperty(ID)
+    private String packageId;
+    @JsonProperty(FUNCTION)
+    private String jsFunctionBody;
     @JsonProperty(FUNCTION_NAME)
     private String jsFunctionName;
     @JsonProperty(FUNCTION_PARAM)
     private ArrayList<Test> jsFunctionParam;
-    @JsonProperty(FUNCTION)
-    private String jsFunctionBody;
-    @JsonProperty(ID)
-    private String packageId;
 
 
     @JsonCreator
