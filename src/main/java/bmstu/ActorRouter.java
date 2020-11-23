@@ -40,6 +40,10 @@ public class ActorRouter extends AbstractActor {
                             storeActor.tell(output , self());
                         }
                 )
+                .match(
+                        String.class,
+                        id -> storeActor.tell(id , self())
+                )
                 .build();
     }
 }

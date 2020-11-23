@@ -46,8 +46,7 @@ public class AkkaMainApplication extends AllDirectives {
         System.out.println("debug message 2");
         return get(()->
                 parameter("packageId" , key -> {
-                    Future<Object> result = Patterns.ask(router,
-                            new JavaScriptFunctionRes(key, ""), 5000);
+                    Future<Object> result = Patterns.ask(router, key, 5000);
                     return completeOKWithFuture(result, Jackson.marshaller());
                 }
         )).orElse(
