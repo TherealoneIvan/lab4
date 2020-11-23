@@ -39,7 +39,7 @@ public class ResultsSupplyActor extends AbstractActor {
                 .match(
                         String.class,
                         id -> {
-                            Sys
+                            System.out.println("res");
                             getSender().tell(packageIdPrinter(id) , ActorRef.noSender());
                         }
                 )
