@@ -25,7 +25,7 @@ public class JSTestExecutorActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        JavaScriptFunctionStore.class,
+                        Test.class,
                         item->getSender().tell(jsExecutor(item.getJsFunctionBody(), item.getJsFunctionName()
                                 ,item.getJsFunctionParam() , item.getPackageId()), ActorRef.noSender())
                 )

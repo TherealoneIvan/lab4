@@ -22,7 +22,9 @@ public class ActorRouter extends AbstractActor {
                 .match(
                         JavaScriptFunctionStore.class,
                         jsFunc -> {
-                            getSelf().tell(jsFunc , testExecutorActor);
+                            for (int i = 0 ; i < jsFunc.jsFunctionParam.size() ; i++) {
+                                getSelf().tell(jsFunc.jsFunctionParam.get(i), testExecutorActor);
+                            }
                         }
                 )
                 .match(
