@@ -23,9 +23,9 @@ public class JavaScriptFunctionStore {
 
     @JsonCreator
     public JavaScriptFunctionStore( @JsonProperty(ID) String packageId,
+                                    @JsonProperty(FUNCTION) String jsFunction,
                                     @JsonProperty(FUNCTION_NAME) String jsFunctionName,
-                                    @JsonProperty(FUNCTION_PARAM) ArrayList<Test>  jsFunctionParam,
-                                    @JsonProperty(FUNCTION) String jsFunction
+                                    @JsonProperty(FUNCTION_PARAM) ArrayList<Test>  jsFunctionParam
                                     )
     {
         this.jsFunctionName = jsFunctionName;
