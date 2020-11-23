@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class JSTestExecutorActor extends AbstractActor {
     public JavaScriptFunctionRes jsExecutor(String jsFunction , String jsFuncName ,
-                                            ArrayList<Test> jsFuncParam , String packageId)
+                                            ArrayList<Integer> jsFuncParam , String packageId)
             throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager()
                 .getEngineByName("nashorn");
@@ -25,9 +25,9 @@ public class JSTestExecutorActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(
-                        Test.class,
-                        item->getSender().tell(jsExecutor(item.getJsFunctionBody(), item.getJsFunctionName()
-                                ,item.getJsFunctionParam() , item.getPackageId()), ActorRef.noSender())
+                        OneTest.class,
+                        item->getSender().tell(jsExecutor(item.getFunction(), item.getName()
+                                ,item.getParams() , item.getPackageId()), ActorRef.noSender())
                 )
                 .build();
     }
