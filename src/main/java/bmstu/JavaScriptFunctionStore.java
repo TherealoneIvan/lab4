@@ -7,24 +7,24 @@ import java.util.ArrayList;
 
 public class JavaScriptFunctionStore {
     private final String ID = "packageId";
-    private final String function = "jsScript";
-    private final String functionName = "functionName";
+    private final String FUNCTION = "jsScript";
+    private final String FUNCTION_NAME = "functionName";
     private final String functParam = "tests";
 
-    @JsonProperty(functionName)
+    @JsonProperty(FUNCTION_NAME)
     private String jsFunctionName;
     @JsonProperty(functParam)
     private ArrayList<String> jsFunctionParam;
-    @JsonProperty(function)
+    @JsonProperty(FUNCTION)
     private String jsFunctionBody;
     @JsonProperty(ID)
     private String packageId;
 
 
     @JsonCreator
-    public JavaScriptFunctionStore( @JsonProperty(functionName) String jsFunctionName,
+    public JavaScriptFunctionStore( @JsonProperty(FUNCTION_NAME) String jsFunctionName,
                                     @JsonProperty(functParam) ArrayList<String>  jsFunctionParam,
-                                    @JsonProperty(function) String jsFunction ,
+                                    @JsonProperty(FUNCTION) String jsFunction ,
                                     @JsonProperty(ID) String packageId)
     {
         this.jsFunctionName = jsFunctionName;
