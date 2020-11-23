@@ -20,7 +20,11 @@ public class JavaScriptFunctionStore {
 
 
     @JsonCreator
-    public JavaScriptFunctionStore(String jsFunctionName, String jsFunctionParam, String jsFunction , String packageId) {
+    public JavaScriptFunctionStore( @JsonProperty(functionName) String jsFunctionName,
+                                    @JsonProperty(functParam) String jsFunctionParam,
+                                    @JsonProperty(function) String jsFunction ,
+                                    @JsonProperty(ID) String packageId)
+    {
         this.jsFunctionName = jsFunctionName;
         this.jsFunctionParam = jsFunctionParam;
         this.jsFunctionBody = jsFunction;
