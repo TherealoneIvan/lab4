@@ -18,6 +18,7 @@ public class JSTestExecutorActor extends AbstractActor {
                 .getEngineByName("nashorn");
         engine.eval(jsFunction);
         Invocable invocable = (Invocable) engine;
+        System.out.println("debug 1");
         return  new JavaScriptFunctionRes(packageId,
                 invocable.invokeFunction(jsFuncName, jsFuncParam).toString());
     }
@@ -26,7 +27,7 @@ public class JSTestExecutorActor extends AbstractActor {
         return receiveBuilder()
                 .match(
                         OneTest.class,
-                        item->getSender().tell(jsExecutor(item.getFunction(), item.getName()
+                        item->getSelf().tell(jsExecutor(item.getFunction(), item.getName()
                                 ,item.getParams() , item.getPackageId()), ActorRef.noSender())
                 )
                 .build();
