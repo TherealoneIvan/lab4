@@ -3,6 +3,8 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+
 public class Test {
     private final String TEST_NAME = "testName";
     private final String EXPECTED_RESULT = "expectedResult";
@@ -15,12 +17,12 @@ public class Test {
     private String expRes;
 
     @JsonProperty(PARAMS)
-    private String params;
+    private ArrayList<Integer> params;
 
     @JsonCreator
     public Test(@JsonProperty(TEST_NAME) String testName,
                 @JsonProperty(EXPECTED_RESULT) String expRes,
-                @JsonProperty(PARAMS) String params)
+                @JsonProperty(PARAMS) ArrayList<Integer> params)
     {
         this.testName = testName;
         this.expRes = expRes;
